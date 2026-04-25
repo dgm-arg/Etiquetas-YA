@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DGR-YA</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
+  <style>
+    body { font-family: Verdana, sans-serif; }
+    tr.selected td { background-color: #0d6efd !important; color: #fff !important; }
+    tr.selected a { color: #fff !important; }
+    tbody tr { cursor: pointer; }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-dark bg-dark px-3 py-1" style="font-size:0.8rem;">
+    <a class="navbar-brand mb-0" href="index.html" style="font-size:0.9rem;">DGR-YA</a>
+    <div class="d-flex gap-3">
+      <a href="table.html" class="text-light">Tabla PI</a>
+      <a href="embalajes.html" class="text-light">Embalajes</a>
+      <a href="lineas.html" class="text-light">Líneas</a>
+      <a href="tests.html" class="text-light">Tests</a>
+    </div>
+  </nav>
+  <div class="container py-5">
+    <h3 class="display-1 fw mb-5 text-center" style="letter-spacing: 2px;">DGR-YA</h3>
+
+    <div class="d-flex justify-content-center mb-4">
+      <div class="card p-4" style="width: 100%; max-width: 400px;">
+        <label for="numInput" class="form-label text-muted">Enter a number</label>
+        <div class="input-group">
+          <input type="number" class="form-control form-control-lg" id="numInput" placeholder="0" value="1133">
+          <button class="btn btn-primary" id="searchBtn">Search</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="results"></div>
+    <div id="embalaje-detail"></div>
+  </div>
+
+  <script type="module" src="app.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
