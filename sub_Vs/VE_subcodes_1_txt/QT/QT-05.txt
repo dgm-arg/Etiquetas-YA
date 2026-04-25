@@ -1,4 +1,0 @@
-QT-05
-No se utiliza.
-
-

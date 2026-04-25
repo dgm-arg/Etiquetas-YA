@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ETIQUETA-YA</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
+  <style>
+    :root {
+      --aqua: #20c997;
+      --aqua-dark: #0f9c75;
+      --aqua-soft: #d4f4ea;
+    }
+    body {
+      font-family: Verdana, sans-serif;
+      background-color: #f3fbf8;
+    }
+    h3.display-1 { color: var(--aqua-dark); }
+
+    .btn-primary {
+      background-color: var(--aqua) !important;
+      border-color: var(--aqua) !important;
+    }
+    .btn-primary:hover {
+      background-color: var(--aqua-dark) !important;
+      border-color: var(--aqua-dark) !important;
+    }
+
+    .form-control:focus {
+      border-color: var(--aqua) !important;
+      box-shadow: 0 0 0 0.25rem rgba(32, 201, 151, 0.25) !important;
+    }
+
+    .table-dark {
+      background-color: var(--aqua-dark) !important;
+      --bs-table-bg: var(--aqua-dark) !important;
+    }
+
+    tr.selected td { background-color: var(--aqua) !important; color: #fff !important; }
+    tr.selected a { color: #fff !important; }
+    tbody tr { cursor: pointer; }
+    tbody tr:hover td { background-color: var(--aqua-soft) !important; }
+
+    /* Etiquetas list */
+    .etq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .etq-row {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(260px, 320px) 1fr;
+      background: #fff;
+      border: 2px solid #cfeee2;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 4px 14px rgba(15, 156, 117, 0.08);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+      cursor: pointer;
+    }
+    .etq-row:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(15, 156, 117, 0.18);
+    }
+    .etq-row.selected {
+      border-color: var(--aqua-dark);
+      box-shadow: 0 0 0 4px rgba(32, 201, 151, 0.18), 0 8px 22px rgba(15, 156, 117, 0.22);
+    }
+    .etq-check {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #fff;
+      border: 2px solid #cfeee2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.18s ease;
+    }
+    .etq-check-circle {
+      font-size: 0;
+      color: #fff;
+      font-weight: 700;
+      line-height: 1;
+      transition: font-size 0.18s ease;
+    }
+    .etq-row.selected .etq-check {
+      background: var(--aqua-dark);
+      border-color: var(--aqua-dark);
+    }
+    .etq-row.selected .etq-check-circle {
+      font-size: 0.95rem;
+    }
+    .etq-type {
+      background: linear-gradient(135deg, var(--aqua) 0%, var(--aqua-dark) 100%);
+      color: #fff;
+      padding: 22px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      text-align: left;
+      gap: 6px;
+      border-right: 4px solid var(--aqua-dark);
+      box-shadow: inset 0 0 30px rgba(0,0,0,0.08);
+    }
+    .etq-name {
+      font-size: 1rem;
+      font-weight: 800;
+      line-height: 1.25;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.18);
+      word-wrap: break-word;
+    }
+    .etq-imgs {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      padding: 18px 22px;
+      background: #fafffd;
+    }
+    .etq-imgs img {
+      height: 130px !important;
+      margin-right: 0 !important;
+      transition: transform 0.18s ease;
+    }
+    .etq-imgs img:hover {
+      transform: scale(1.06);
+    }
+
+    @media (max-width: 720px) {
+      .etq-row { grid-template-columns: 1fr; }
+      .etq-imgs img { height: 95px !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container py-5">
+    <h3 class="display-1 fw mb-5 text-center" style="letter-spacing: 2px;">ETIQUETA-YA</h3>
+
+    <div class="d-flex justify-content-center mb-4">
+      <div class="card p-4" style="width: 100%; max-width: 400px;">
+        <label for="numInput" class="form-label text-muted">Número ONU</label>
+        <div class="input-group">
+          <input type="number" class="form-control form-control-lg" id="numInput" placeholder="0" value="1133">
+          <button class="btn btn-primary" id="searchBtn">Buscar</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="results"></div>
+    <div id="embalaje-detail"></div>
+  </div>
+
+  <script type="module" src="etiquetas.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

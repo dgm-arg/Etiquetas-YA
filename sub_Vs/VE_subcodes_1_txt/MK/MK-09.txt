@@ -1,4 +1,0 @@
-MK-09
-El número de teléfono del consignatario deberá mostrarse en la guía aérea.
-
-
